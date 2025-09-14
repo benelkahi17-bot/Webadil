@@ -1,0 +1,159 @@
+// PáginaWeb_DonAdil.jsx
+// Single-file React component (Tailwind CSS classes assumed available globally)
+// Default export: LandingPage component
+// Uso: importar y renderizar en tu app (por ejemplo con Vite / Create React App)
+
+import React from "react";
+
+export default function LandingPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white text-gray-800">
+      {/* NAV */}
+      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-400 flex items-center justify-center text-white font-bold">DA</div>
+          <div>
+            <h1 className="text-lg font-semibold">Don Adil</h1>
+            <p className="text-xs text-gray-500">Soluciones y servicios</p>
+          </div>
+        </div>
+
+        <nav className="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#features" className="hover:text-indigo-600">Servicios</a>
+          <a href="#about" className="hover:text-indigo-600">Sobre mí</a>
+          <a href="#contact" className="hover:text-indigo-600">Contacto</a>
+        </nav>
+
+        <div className="md:hidden">{/* mobile menu placeholder */}
+          <button aria-label="Open menu" className="p-2 rounded-md border">☰</button>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">Construyo páginas limpias y rápidas
+            <span className="text-indigo-600"> que convierten.</span>
+          </h2>
+          <p className="mt-4 text-gray-600 max-w-xl">Sitios responsivos, optimizados para rendimiento y fáciles de mantener. Diseño moderno con Tailwind, Formularios funcionales y integración básica lista para producción.</p>
+
+          <div className="mt-6 flex gap-3">
+            <a href="#contact" className="px-5 py-3 rounded-lg bg-indigo-600 text-white font-semibold shadow">Contactar</a>
+            <a href="#features" className="px-5 py-3 rounded-lg border">Ver servicios</a>
+          </div>
+
+          <ul className="mt-6 grid grid-cols-2 gap-2 text-sm text-gray-500">
+            <li>✅ Responsive</li>
+            <li>✅ SEO básico</li>
+            <li>✅ Formulario de contacto</li>
+            <li>✅ Código limpio</li>
+          </ul>
+        </div>
+
+        <div className="p-6 bg-white rounded-2xl shadow-md">
+          <div className="h-60 rounded-lg bg-gradient-to-r from-indigo-50 to-indigo-100 flex items-center justify-center">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 7h18M5 11h14M7 15h10" stroke="#4f46e5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+
+          <div className="mt-6">
+            <h3 className="font-semibold">Demostración rápida</h3>
+            <p className="mt-2 text-sm text-gray-600">Este bloque puede usarse para mostrar un vídeo, una captura o enlaces rápidos a tus servicios.</p>
+            <div className="mt-4 flex gap-3">
+              <a className="px-3 py-2 border rounded">Ver demo</a>
+              <a className="px-3 py-2 border rounded">Descargar</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section id="features" className="max-w-6xl mx-auto px-6 py-12">
+        <h3 className="text-2xl font-bold">Servicios</h3>
+        <div className="mt-6 grid md:grid-cols-3 gap-6">
+          <Card title="Desarrollo web" desc="Páginas estáticas y SPAs optimizadas, deploy en Netlify / Vercel."/>
+          <Card title="Optimización" desc="Mejoras de rendimiento: imágenes, caché, lazy-load y más."/>
+          <Card title="Integración" desc="Formularios, Mailer (SMTP / Mailgun) y análisis básicos."/>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="max-w-6xl mx-auto px-6 py-12 bg-gradient-to-r from-indigo-50 to-white rounded-2xl mx-6">
+        <div className="md:flex items-center gap-8">
+          <div className="w-48 h-48 rounded-xl bg-white shadow flex items-center justify-center">📸</div>
+          <div>
+            <h3 className="text-2xl font-bold">Sobre mí</h3>
+            <p className="mt-3 text-gray-600">Soy desarrollador freelance con experiencia en crear webs prácticas y fáciles de mantener. Trabajo directo y claro — lo que pides, cuando lo pides.</p>
+            <ul className="mt-4 text-sm text-gray-500">
+              <li>• Entrega rápida</li>
+              <li>• Soporte y mantenimiento</li>
+              <li>• Precios claros</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="max-w-6xl mx-auto px-6 py-12">
+        <h3 className="text-2xl font-bold">Contacto</h3>
+        <div className="mt-6 grid md:grid-cols-2 gap-6">
+          <form className="space-y-4 bg-white p-6 rounded-2xl shadow-md" onSubmit={(e)=>{e.preventDefault(); window.location.href = `mailto:tu@correo.com?subject=Contacto%20desde%20web&body=Hola%20Don%20Adil,%20te%20escribo...`}}>
+            <div>
+              <label className="text-sm">Nombre</label>
+              <input className="w-full mt-1 p-3 border rounded" placeholder="Tu nombre" required />
+            </div>
+            <div>
+              <label className="text-sm">Email</label>
+              <input type="email" className="w-full mt-1 p-3 border rounded" placeholder="tu@correo.com" required />
+            </div>
+            <div>
+              <label className="text-sm">Mensaje</label>
+              <textarea className="w-full mt-1 p-3 border rounded" rows={4} placeholder="Cómo puedo ayudarte?" required />
+            </div>
+            <div>
+              <button type="submit" className="px-5 py-3 rounded-lg bg-indigo-600 text-white font-semibold">Enviar</button>
+            </div>
+          </form>
+
+          <div className="p-6">
+            <h4 className="font-semibold">Info rápida</h4>
+            <p className="mt-2 text-gray-600">Teléfono: +34 600 000 000 (placeholder)</p>
+            <p className="mt-1 text-gray-600">Dirección: La Mojonera, Almería</p>
+
+            <div className="mt-6 grid gap-3">
+              <div className="p-4 rounded-lg border">Horario: Lun-Vie 9:00 - 19:00</div>
+              <div className="p-4 rounded-lg border">Pago: Transferencia / Bizum</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mt-12 py-8 border-t">
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm text-gray-500">
+          <div>© {new Date().getFullYear()} Don Adil — Todos los derechos reservados</div>
+          <div>Hecho con ❤️ — diseño simple</div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function Card({title, desc}){
+  return (
+    <div className="p-6 bg-white rounded-2xl shadow-sm">
+      <h4 className="font-semibold">{title}</h4>
+      <p className="mt-2 text-sm text-gray-600">{desc}</p>
+      <div className="mt-4">
+        <a className="text-sm font-medium">Saber más →</a>
+      </div>
+    </div>
+  );
+}
+
+
+Salam Don Adil — ya está lista una página web básica en el canvas llamada "Página Web — Don Adil".
+
+Ábrela para ver y copiar el archivo React (single-file) con Tailwind-ready markup. Si quieres que la adapte (colores, texto en darija, añadir galería, formulario real con Mailgun/SMTP
+
