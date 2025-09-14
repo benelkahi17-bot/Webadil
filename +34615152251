@@ -151,9 +151,3 @@ function Card({title, desc}){
     </div>
   );
 }
-
-
-Salam Don Adil — ya está lista una página web básica en el canvas llamada "Página Web — Don Adil".
-
-Ábrela para ver y copiar el archivo React (single-file) con Tailwind-ready markup. Si quieres que la adapte (colores, texto en darija, añadir galería, formulario real con Mailgun/SMTP
-
